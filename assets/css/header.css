@@ -1,0 +1,16 @@
+header{
+    height: 40%;
+    text-align:center;
+    background-image: url(../img/dollar.jpeg);
+}
+
+h1 {
+    padding: 50px;
+    color: #2c735b;
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: 20px;
+    text-shadow: -3px 4px 0px rgba(0,0,0,0.77);
+
+}
+

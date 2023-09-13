@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/results.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="./assets/js/script.js" defer></script>
+
+    <link
+      class="icon"
+      rel="shortcut icon"
+      type="imagex/x-icon"
+      href="/assets/img/dollar.ico"
+    />
+
+    <title>Conversor de Moeda</title>
+  </head>
+  <body>
+    <header>
+      <h1>Conversor</h1>
+    </header>
+    <main>
+      <div class="select-options">
+        <label>Converter <b>de:</b></label>
+        <select id="seletor-primario">
+          <option value="real">R$ Real Brasileiro</option>
+          <option value="dolar">US$ Dolar Americano</option>
+          <option value="euro">€ Euro</option>
+          <option value="libra">£ Libra</option>
+        </select>
+
+        <label>Converter <b>para</b>:</label>
+        <select id="seletor-secundario">
+          <option value="real">R$ Real Brasileiro</option>
+          <option value="dolar" selected>US$ Dolar Americano</option>
+          <option value="euro">€ Euro</option>
+          <option value="libra">£ Libra</option>
+        </select>
+
+        <label
+          >Valor:
+          <input
+            type="text"
+            name="dinheiro"
+            id="input-valor"
+            placeholder="R$ 10.000,00"
+          />
+        </label>
+        <button class="btn-converter">Converter</button>
+      </div>
+
+      <section>
+        <div class="results">
+        <div class="converter-moeda">
+          <img
+            class="country-flag" id="img-moeda-selecionada"
+            src="./assets/img/bandeira-brasil.png"
+            alt="bandeira do brasil"
+          />
+          <p class="nome-moeda-selecionada">Real</p>
+          <h5 class="valor-digitado" id="selecionado">R$ 0,00</h5>
+        </div>
+
+        <img src="./assets/img/seta.png" alt="seta para baixo" />
+
+        <div>
+          <img
+            class="country-flag" id="img-moeda-convertida"
+            src="./assets/img/bandeira-usa.png"
+            alt="bandeira dos estados unidos"
+          />
+          <p class="nome-moeda-convertida">Dólar Americano</p>
+          <h5 class="valor-convertido" id="convertido">US$ 0.0</h5>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
