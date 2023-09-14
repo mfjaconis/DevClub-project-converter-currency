@@ -4,15 +4,15 @@ const moedaSecundariaSelecionada = document.querySelector(
   "#seletor-secundario"
 );
 const valorConvertido = document.querySelector(".valor-convertido");
+const valorDigitado = document.querySelector(".valor-digitado");
 
 function converterValor() {
   const inputValor = document.querySelector("#input-valor").value;
-  const valorDigitado = document.querySelector(".valor-digitado");
+  
 
   const dolarDoDia = 4.91;
   const euroDoDia = 5.27;
   const libraDoDia = 6.14;
-  const bitcoinDoDia = 128465.82;
 
   //Conversão do real para as demais moedas
   if (
@@ -24,6 +24,12 @@ function converterValor() {
       currency: "USD",
       minimumFractionDigits: 2,
     }).format(inputValor / dolarDoDia);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "real" &&
     moedaSecundariaSelecionada.value === "euro"
@@ -33,6 +39,12 @@ function converterValor() {
       currency: "EUR",
       minimumFractionDigits: 2,
     }).format(inputValor / euroDoDia);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "real" &&
     moedaSecundariaSelecionada.value === "libra"
@@ -42,10 +54,21 @@ function converterValor() {
       currency: "GBP",
       minimumFractionDigits: 2,
     }).format(inputValor / libraDoDia);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "real" &&
     moedaSecundariaSelecionada.value === "real"
   ) {
+    valorConvertido.innerHTML = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputValor);
+
     valorDigitado.innerHTML = new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -62,6 +85,13 @@ function converterValor() {
       currency: "USD",
       minimumFractionDigits: 2,
     }).format(inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "dolar" &&
     moedaSecundariaSelecionada.value === "euro"
@@ -71,6 +101,13 @@ function converterValor() {
       currency: "EUR",
       minimumFractionDigits: 2,
     }).format((dolarDoDia / euroDoDia) * inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "dolar" &&
     moedaSecundariaSelecionada.value === "libra"
@@ -80,6 +117,13 @@ function converterValor() {
       currency: "GBP",
       minimumFractionDigits: 2,
     }).format(inputValor * (dolarDoDia / libraDoDia));
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "dolar" &&
     moedaSecundariaSelecionada.value === "real"
@@ -90,6 +134,13 @@ function converterValor() {
       style: "currency",
       currency: "BRL",
     }).format(inputValor * dolarDoDia);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   }
 
   //Conversão do euro para as demais moedas
@@ -102,6 +153,13 @@ function converterValor() {
       currency: "USD",
       minimumFractionDigits: 2,
     }).format((euroDoDia / dolarDoDia) * inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "euro" &&
     moedaSecundariaSelecionada.value === "euro"
@@ -120,6 +178,13 @@ function converterValor() {
       currency: "GBP",
       minimumFractionDigits: 2,
     }).format((euroDoDia / libraDoDia) * inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "euro" &&
     moedaSecundariaSelecionada.value === "real"
@@ -128,6 +193,12 @@ function converterValor() {
       style: "currency",
       currency: "BRL",
     }).format(inputValor * euroDoDia);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
   }
 
   //Conversão da libra para as demais moedas
@@ -140,6 +211,12 @@ function converterValor() {
       currency: "USD",
       minimumFractionDigits: 2,
     }).format((libraDoDia / dolarDoDia) * inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
   } else if (
     moedaPrimariaSelecionada.value === "libra" &&
     moedaSecundariaSelecionada.value === "euro"
@@ -149,11 +226,24 @@ function converterValor() {
       currency: "EUR",
       minimumFractionDigits: 2,
     }).format((libraDoDia / euroDoDia) * inputValor);
+
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
   } else if (
     moedaPrimariaSelecionada.value === "libra" &&
     moedaSecundariaSelecionada.value === "libra"
   ) {
     valorConvertido.innerHTML = new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+    
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-GB", {
       style: "currency",
       currency: "GBP",
       minimumFractionDigits: 2,
@@ -166,13 +256,16 @@ function converterValor() {
       style: "currency",
       currency: "BRL",
     }).format(inputValor * libraDoDia);
-  }
 
-  valorDigitado.innerHTML = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(inputValor);
+    valorDigitado.innerHTML = new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+      minimumFractionDigits: 2,
+    }).format(inputValor);
+
+  }
 }
+
 
 // altera a imagem, nome da moeda e simbolo do valor convertido
 function changeMoedaConvertida() {
