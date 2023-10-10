@@ -6,13 +6,14 @@ const moedaSecundariaSelecionada = document.querySelector(
 const valorConvertido = document.querySelector(".valor-convertido");
 const valorDigitado = document.querySelector(".valor-digitado");
 
-function converterValor() {
+async function converterValor() {
   const inputValor = document.querySelector("#input-valor").value;
   
+  const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json())
 
-  const dolarDoDia = 4.91;
-  const euroDoDia = 5.27;
-  const libraDoDia = 6.14;
+  const dolarDoDia = data.USDBRL.high;
+  const euroDoDia = data.EURBRL.high;
+  const libraDoDia = data.GBPBRL.high;
 
   //Conversão do real para as demais moedas
   if (
